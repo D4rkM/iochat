@@ -14,6 +14,7 @@ global.dir.app = path.join(global.dir.root, 'app');
 
 global.dir.routes = path.join(global.dir.app, 'routes');
 global.dir.models = path.join(global.dir.app, 'models');
+global.dir.views  = path.join(global.dir.app, 'views');
 
 //global.db = require(path.join(global.dir.app, 'database.js'));
 
