@@ -3,6 +3,8 @@ const consign = require('consign');
 const socket  = require('socket.io');
 const http    = require('http');
 const path    = require('path');
+const bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload');
 
 global.dir = {};
 
@@ -22,6 +24,13 @@ app.disable('x-powered-by');
 const server = http.createServer(app);
 
 global.io = socket.listen(server);
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(fileUpload());
+
+app.set('view engine', 'ejs');
+app.set('views', global.dir.views);
 
 const port = process.env.PORT || 8080;
 
